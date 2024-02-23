@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import javax.imageio.ImageIO;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -29,11 +31,12 @@ public class HelloController {
     protected void ReadData() throws IOException {}
     protected void Save() throws IOException {}
     protected void Restore() throws IOException {}
-    protected void addminRemove() throws IOException {}
     protected void TakeFaceCameShot() throws IOException {}
     protected void pullFromItem() throws IOException {}
+    protected void Initialize() throws IOException {}
 
 
-
+    public void onHelloButtonClick(ActionEvent actionEvent) {
+    }
 }
 

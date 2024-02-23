@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.schoolpassport.AdminView"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolpassport.HelloController">
+   <children>
+      <TableView layoutX="8.0" layoutY="14.0" prefHeight="305.0" prefWidth="585.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="Name" />
+            <TableColumn prefWidth="75.0" text="Id" />
+            <TableColumn prefWidth="75.0" text="Date" />
+            <TableColumn prefWidth="75.0" text="StudentID" />
+            <TableColumn prefWidth="75.0" text="GradYear" />
+            <TableColumn prefWidth="96.0" text="Chromebook" />
+            <TableColumn prefWidth="113.0" text="ChromebookNum" />
+         </columns>
+      </TableView>
+      <Button layoutX="75.0" layoutY="333.0" mnemonicParsing="false" text="Return" />
+      <Button layoutX="175.0" layoutY="334.0" mnemonicParsing="false" text="Take Out Data" />
+      <PasswordField layoutX="301.0" layoutY="334.0" />
+      <ImageView fitHeight="61.0" fitWidth="69.0" layoutX="8.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>
