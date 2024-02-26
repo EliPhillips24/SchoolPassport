@@ -25,7 +25,7 @@ public class HelloController {
 
     public TextField StudentID;
 
-    public PasswordField Password;
+    public PasswordField passwordField;
     public TextField Date;
     public TextField DateOfBirth;
     public TextField AudioID;
@@ -39,10 +39,12 @@ public class HelloController {
 
     @FXML
     protected void adminMode(ActionEvent event) throws Exception {
-        System.out.println(Password.getText());
 
-        if (Password.getText() == "SLA2023"){
+        String pass = passwordField.getText();
 
+        System.out.println(pass);
+
+        if(pass.toString().equals("SLA2024")) {
             root = FXMLLoader.load(getClass().getResource("AdminView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);

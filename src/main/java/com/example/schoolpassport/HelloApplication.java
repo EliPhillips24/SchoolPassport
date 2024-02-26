@@ -24,24 +24,6 @@ public class  HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-    /*try {
-
-        if (WhatSpell == true) {
-            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 500, 270);
-            stage.setScene(scene);
-        } else {
-            fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AdminView.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 500, 270);
-            stage.setScene(scene);
-        }
-
-    } catch (IOException e) {
-        e.printStackTrace();
-    }
-
-
-     */
     }
 
     public static void Swap() throws Exception {
