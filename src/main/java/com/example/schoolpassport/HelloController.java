@@ -40,12 +40,13 @@ public class HelloController {
 
     @FXML
     protected void adminMode(ActionEvent event) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        root = FXMLLoader.load(getClass().getResource("AdminView.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
     protected void addData() throws IOException {}
     protected void ReadData() throws IOException {}
     protected void Save() throws IOException {}
