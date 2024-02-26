@@ -2,6 +2,7 @@ package com.example.schoolpassport;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -9,12 +10,21 @@ import java.io.IOException;
 
 
 public class  HelloApplication extends Application {
-    @Override
-public void start(Stage stage) throws Exception {
-    boolean WhatSpell = false;
+    static boolean WhatSpell = true;
+
+
+    public void start(Stage stage) throws Exception {
+    //boolean WhatSpell = false;
+
 
     FXMLLoader fxmlLoader;
-    try {
+
+    Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    /*try {
 
         if (WhatSpell == true) {
             fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
@@ -25,13 +35,21 @@ public void start(Stage stage) throws Exception {
             Scene scene = new Scene(fxmlLoader.load(), 500, 270);
             stage.setScene(scene);
         }
-        stage.setTitle("Hello!");
-        stage.show();
 
     } catch (IOException e) {
         e.printStackTrace();
     }
-}
+
+
+     */
+    }
+
+    public static void Swap() throws Exception {
+
+        WhatSpell = !WhatSpell;
+        System.out.println("    123    ");
+
+    }
 
     public static void main(String[] args) {
         launch();
