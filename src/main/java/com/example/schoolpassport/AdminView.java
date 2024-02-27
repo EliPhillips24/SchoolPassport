@@ -1,5 +1,6 @@
 package com.example.schoolpassport;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,9 +12,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class AdminView {
     private Stage stage;
@@ -24,13 +27,58 @@ public class AdminView {
     public DatePicker AdminDate;
 
     public LocalDate localDate;
+
+    public void Save() throws Exception {
+
+            FileOutputStream outputStream = new FileOutputStream("Save");
+            ObjectOutputStream objOutputStream = new ObjectOutputStream(outputStream);
+
+            ObservableList<GoIn> activities = AdminTable.getItems();
+
+            // Write the number of saved objects
+            objOutputStream.writeInt(activities.size());
+
+            // Write each Activity object
+            for (GoIn activity : activities) {
+                objOutputStream.writeObject(activity);
+            }
+
+            // Close the streams
+            objOutputStream.flush();
+            objOutputStream.close();
+            outputStream.close();
+        }
+    public void reload() throws Exception {
+
+        FileInputStream inputStream = new FileInputStream("Save");
+        ObjectInputStream objInputStream = new ObjectInputStream(inputStream);
+
+// Read the list size
+        int numOfSavedObjects = objInputStream.readInt();
+
+        List<GoIn> activities = new ArrayList<>();
+
+// Read each Activity object
+        for (int i = 0; i < numOfSavedObjects; i++) {
+            GoIn activity = (GoIn) objInputStream.readObject();
+            activities.add(activity);
+        }
+
+// Close the streams
+        objInputStream.close();
+        inputStream.close();
+
+// Add the loaded activities to the table
+        AdminTable.getItems().addAll(activities);
+    }
+
     protected void adminRemove() throws IOException {}
     public void adminData() throws IOException {
 
 
-//        String dateString = AdminDate.getValue().toString();
+       String dateString = AdminDate.getValue().toString();
 
-     //   AdminTable.getItems().add(new GoIn("Eli", AdminDate,"eliPhillip24",12.0,12.0,false,12));
+        AdminTable.getItems().add(new GoIn("Eli", AdminDate.getValue(),"eliPhillip24",12.0,12.0,false,12));
 
     }
     public void initialize() {
