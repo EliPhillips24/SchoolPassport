@@ -30,7 +30,6 @@ public class AdminView {
 
         String dateString = AdminDate.getValue().toString();
 
-
      //   AdminTable.getItems().add(new GoIn("Eli", AdminDate,"eliPhillip24",12.0,12.0,false,12));
 
     }
