@@ -72,7 +72,9 @@ public class HelloController {
     protected void Restore() throws IOException {}
     protected void TakeFaceCameShot() throws IOException {}
     protected void pullFromItem() throws IOException {}
-    protected void Initialize() throws IOException {}
+    protected void initialize() throws IOException {
+
+    }
 
 
     public void onHelloButtonClick(ActionEvent actionEvent) {
