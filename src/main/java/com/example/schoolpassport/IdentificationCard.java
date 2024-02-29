@@ -1,19 +1,17 @@
 package com.example.schoolpassport;
 
-import javafx.scene.image.Image;
-
 import java.time.LocalDate;
 
 public class IdentificationCard {
 
-    private final int image;
 
-    public IdentificationCard(String name, int id, LocalDate mydob, String graduationyr, int image) {
+
+    public IdentificationCard(String name, int id, LocalDate mydob, String graduationyr) {
         this.name = name;
         this.id = id;
         this.mydob = mydob;
         this.graduationyr = graduationyr;
-        this.image=image;
+
     }
     private String name;
 
@@ -38,7 +36,7 @@ public class IdentificationCard {
         return graduationyr;
     }
 
-    public int getImage() {return image;}
+
 
 
 

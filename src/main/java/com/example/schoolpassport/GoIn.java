@@ -1,11 +1,12 @@
 package com.example.schoolpassport;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class GoIn {
 
 private String Name;
-private LocalDate Mydate;
+private Date Mydate;
 private String email;
 private Double StudentID;
 private Double GradYear;
@@ -21,11 +22,11 @@ private int NumberOfChromebook;
         Name = name;
     }
 
-    public LocalDate getMydate() {
+    public Date getMydate() {
         return Mydate;
     }
 
-    public void setMydate(LocalDate mydate) {
+    public void setMydate(Date mydate) {
         Mydate = mydate;
     }
 
