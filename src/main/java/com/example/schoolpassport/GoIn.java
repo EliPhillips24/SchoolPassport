@@ -5,10 +5,10 @@ import java.time.LocalDate;
 public class GoIn {
 
 private String Name;
-private LocalDate Mydate;
+public String Mydate;
 private String email;
-private Double StudentID;
-private Double GradYear;
+private int StudentID;
+private int GradYear;
 private Boolean Chromebook;
 private int NumberOfChromebook;
 
@@ -21,11 +21,11 @@ private int NumberOfChromebook;
         Name = name;
     }
 
-    public LocalDate getMydate() {
+    public String getMydate() {
         return Mydate;
     }
 
-    public void setMydate(LocalDate mydate) {
+    public void setMydate(String mydate) {
         Mydate = mydate;
     }
 
@@ -37,19 +37,19 @@ private int NumberOfChromebook;
         this.email = email;
     }
 
-    public Double getStudentID() {
+    public int getStudentID() {
         return StudentID;
     }
 
-    public void setStudentID(Double studentID) {
+    public void setStudentID(int studentID) {
         StudentID = studentID;
     }
 
-    public Double getGradYear() {
+    public int getGradYear() {
         return GradYear;
     }
 
-    public void setGradYear(Double gradYear) {
+    public void setGradYear(int gradYear) {
         GradYear = gradYear;
     }
 
@@ -69,7 +69,7 @@ private int NumberOfChromebook;
         NumberOfChromebook = numberOfChromebook;
     }
 
-    public GoIn(String name, LocalDate mydate, String email, Double studentID, Double gradYear, Boolean chromebook, int numberOfChromebook) {
+    public GoIn(String name, String mydate, String email, int studentID, int gradYear, boolean chromebook, int numberOfChromebook) {
         Name = name;
         Mydate = mydate;
         this.email = email;

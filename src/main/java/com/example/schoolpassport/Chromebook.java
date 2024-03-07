@@ -1,7 +1,7 @@
 package com.example.schoolpassport;
 
 import java.time.LocalDate;
-
+/*
 public class Chromebook extends IdentificationCard {
 
     private int cbid;
@@ -36,8 +36,9 @@ public class Chromebook extends IdentificationCard {
 
 
     public Chromebook(String name, int cbid, int id, LocalDate mydob, String graduationyr, boolean haveornothave,String email) {
-        super(name, id, mydob, graduationyr);
+        super(name, cbid, id, mydob,graduationyr, haveornothave, email);
 
 
     }
 }
+*/
