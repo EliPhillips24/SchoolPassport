@@ -4,7 +4,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolpassport.AdminView">
@@ -13,7 +12,6 @@
       <Button layoutX="23.0" layoutY="334.0" mnemonicParsing="false" onAction="#normalMode" text="Return" />
       <Button layoutX="87.0" layoutY="334.0" mnemonicParsing="false" onAction="#adminData" text="Take Out Data" />
       <PasswordField layoutX="301.0" layoutY="334.0" />
-      <ImageView fitHeight="61.0" fitWidth="69.0" layoutX="8.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true" />
       <DatePicker fx:id="AdminDate" layoutX="476.0" layoutY="334.0" prefHeight="26.0" prefWidth="110.0" />
       <Button layoutX="190.0" layoutY="335.0" mnemonicParsing="false" onAction="#Save" text="Save" />
       <Button layoutX="236.0" layoutY="335.0" mnemonicParsing="false" onAction="#reload" text="Restore" />

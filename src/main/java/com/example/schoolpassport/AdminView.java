@@ -77,11 +77,8 @@ public class AdminView {
     protected void adminRemove() throws IOException {}
     public void adminData() throws Exception {
 
-      //  String date = AdminDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-         //  System.out.println(date);
 
 
-        this.scanner();
 
     }
     public void initialize() throws Exception {
@@ -111,8 +108,11 @@ public class AdminView {
         AdminTable.getColumns().add(GradyearColumn);
         AdminTable.getColumns().add(AdvisorColumn);
 
+        this.scanner();
+
     }
     public void normalMode(ActionEvent event) throws Exception {
+        System.out.println("Normal Mode");
         root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
