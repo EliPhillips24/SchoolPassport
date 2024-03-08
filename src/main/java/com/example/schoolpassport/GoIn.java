@@ -1,94 +1,82 @@
 package com.example.schoolpassport;
 
-import java.time.LocalDate;
-
 public class GoIn {
+    public String name;
+    public String PerName;
+    public int ID;
+    public int grade;
+    public String Advisor;
 
-private String Name;
-public String Mydate;
-private String email;
-private int StudentID;
-private int GradYear;
-private Boolean Chromebook;
-private int NumberOfChromebook;
+    public String Pronouns;
+
+    public GoIn(String name, String perName, String pronouns, int id, int grade, String advisor) {
+        this.name = name;
+        PerName = perName;
+        this.ID = id;
+        this.grade = grade;
+        Advisor = advisor;
+        Pronouns = pronouns;
+    }
+
 
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getMydate() {
-        return Mydate;
+    public String getPerName() {
+        return PerName;
     }
 
-    public void setMydate(String mydate) {
-        Mydate = mydate;
+    public void setPerName(String perName) {
+        PerName = perName;
     }
 
-    public String getEmail() {
-        return email;
+    public int getID() {
+        return ID;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public int getStudentID() {
-        return StudentID;
+    public int getGrade() {
+        return grade;
     }
 
-    public void setStudentID(int studentID) {
-        StudentID = studentID;
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
-    public int getGradYear() {
-        return GradYear;
+
+    public String getAdvisor() {
+        return Advisor;
     }
 
-    public void setGradYear(int gradYear) {
-        GradYear = gradYear;
+    public void setAdvisor(String advisor) {
+        Advisor = advisor;
+    }
+    public String getPronouns() {
+        return Pronouns;
     }
 
-    public Boolean getChromebook() {
-        return Chromebook;
-    }
-
-    public void setChromebook(Boolean chromebook) {
-        Chromebook = chromebook;
-    }
-
-    public int getNumberOfChromebook() {
-        return NumberOfChromebook;
-    }
-
-    public void setNumberOfChromebook(int numberOfChromebook) {
-        NumberOfChromebook = numberOfChromebook;
-    }
-
-    public GoIn(String name, String mydate, String email, int studentID, int gradYear, boolean chromebook, int numberOfChromebook) {
-        Name = name;
-        Mydate = mydate;
-        this.email = email;
-        StudentID = studentID;
-        GradYear = gradYear;
-        Chromebook = chromebook;
-        NumberOfChromebook = numberOfChromebook;
+    public void setPronoun(String pronouns) {
+        Pronouns = pronouns;
     }
 
     @Override
     public String toString() {
-        return "GoIn" +
-                "Name='" + Name + '\'' +
-                ", Mydate=" + Mydate +
-                ", email='" + email + '\'' +
-                ", StudentID=" + StudentID +
-                ", GradYear=" + GradYear +
-                ", Chromebook=" + Chromebook +
-                ", NumberOfChromebook=" + NumberOfChromebook +
+        return "GoIn{" +
+                "name='" + name + '\'' +
+                ", PerName='" + PerName + '\'' +
+                ", ID=" + ID +
+                ", grade=" + grade +
+                ", Advisor='" + Advisor + '\'' +
+                ", Pronoun='" + Pronouns + '\'' +
                 '}';
     }
 }

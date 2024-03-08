@@ -15,10 +15,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class AdminView {
@@ -27,7 +25,6 @@ public class AdminView {
     private Parent root;
     
     public TableView AdminTable;
-    public DatePicker AdminDate;
 
     public LocalDate localDate;
 
@@ -80,8 +77,8 @@ public class AdminView {
     protected void adminRemove() throws IOException {}
     public void adminData() throws Exception {
 
-        String date = AdminDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-           System.out.println(date);
+      //  String date = AdminDate.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+         //  System.out.println(date);
 
 
         this.scanner();
@@ -93,40 +90,26 @@ public class AdminView {
         TableColumn NameColumn = new TableColumn<GoIn, String>("Name");
         NameColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("name"));
 
-        TableColumn DateColummn = new TableColumn<GoIn, LocalDate>("Date");
-        DateColummn.setCellValueFactory(new PropertyValueFactory<GoIn, LocalDate>("Mydate"));
+        TableColumn EmailColumn = new TableColumn<GoIn, String>("PerName");
+        EmailColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("perName"));
 
-        TableColumn EmailColumn = new TableColumn<GoIn, String>("Email");
-        EmailColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("email"));
+        TableColumn StuIDColumn = new TableColumn<GoIn, String>("Pronouns");
+        StuIDColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("pronouns"));
 
-        TableColumn StuIDColumn = new TableColumn<GoIn, Double>("StudentID");
-        StuIDColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Double>("studentID"));
+        TableColumn GradyearColumn = new TableColumn<GoIn, Integer>("Ident");
+        GradyearColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Integer>("iD"));
 
-        TableColumn GradyearColumn = new TableColumn<GoIn, Double>("GradYear");
-        GradyearColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Double>("gradYear"));
 
-        TableColumn ChromebookColumn = new TableColumn<GoIn, Boolean>("Chromebook");
-        ChromebookColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Boolean>("chromebook"));
 
-        TableColumn ChromebookNum = new TableColumn<GoIn, Integer>("NumberOfChromebook");
-        ChromebookNum.setCellValueFactory(new PropertyValueFactory<GoIn, Integer>("numberOfChromebook"));
-
+        TableColumn AdvisorColumn = new TableColumn<GoIn, String>("Advisor");
+        AdvisorColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("advisor"));
 
 
         AdminTable.getColumns().add(NameColumn);
-        AdminTable.getColumns().add(DateColummn);
         AdminTable.getColumns().add(EmailColumn);
         AdminTable.getColumns().add(StuIDColumn);
         AdminTable.getColumns().add(GradyearColumn);
-        AdminTable.getColumns().add(ChromebookColumn);
-        AdminTable.getColumns().add(ChromebookNum);
-
-//scanner
-
-
-
-
-
+        AdminTable.getColumns().add(AdvisorColumn);
 
     }
     public void normalMode(ActionEvent event) throws Exception {
@@ -140,7 +123,7 @@ public class AdminView {
 
 
     public void scanner() throws Exception {
-/*
+
         String fileName = "/Users/elip/IdeaProjects/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
 
         try {
@@ -157,58 +140,28 @@ public class AdminView {
                 // Ensure the line has enough components to extract information
                 if (components.length >= 6) {
                     String name = components[0];
-                    String pronouns = components[1];
-                    String id = components[2];
-                    int grade = Integer.parseInt(components[3]);
-
-
-                    int classroom;
-                    try {
-                        classroom = Integer.parseInt(components[4]);
-                    } catch (NumberFormatException e) {
-                        // Handle the case where the value cannot be parsed as an integer
-                        // You might want to set a default value or log the error
-                        classroom = 0; // Default value, replace with your logic
-                    }
-
-
-
-                    try {
-                        classroom = Integer.parseInt(components[4]);
-                    } catch (NumberFormatException e) {
-                        // Handle the case where the value cannot be parsed as an integer
-                        // You might want to set a default value or handle it in another way
-                        classroom = 0; // Default value, replace with your logic
-                    }
+                    String PerName = components[1];
+                    String pronouns = components[2];
+                    int iD = Integer.parseInt(components[3]);
+                    int grade = Integer.parseInt(components[4]);
 
                     String advisor = components[5];
 
-                    // Process the extracted information (replace this with your logic)
-                    System.out.println("Name: " + name);
-                    System.out.println("Pronouns: " + pronouns);
-                    System.out.println("ID: " + id);
-                    System.out.println("Grade: " + grade);
-                    System.out.println("Classroom: " + classroom);
-                    System.out.println("Advisor: " + advisor);
-                    System.out.println("-----------------------");
+                    System.out.println(iD);
+                    GoIn newPerson = new GoIn(name,PerName,pronouns,iD,grade,advisor);
+                        AdminTable.getItems().add(newPerson);
+                    System.out.println("id");
+
                 } else {
                     System.err.println("Invalid line format: " + line);
                 }
             }
-
-            // Close the Scanner
             scanner.close();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.err.println("File not found: " + fileName);
         }
-
- */
             }
-
-
-
         }
 
 

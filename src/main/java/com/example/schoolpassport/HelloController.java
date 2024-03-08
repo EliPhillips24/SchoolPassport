@@ -44,7 +44,8 @@ public class HelloController {
     public void adminMode(ActionEvent event) throws Exception {
         System.out.println(Password.getText());
 
-        if (Password.getText() == "SLA2024"){
+        if (Password.getText().equals("SLA2024")) {
+            System.out.println("True");
 
             root = FXMLLoader.load(getClass().getResource("AdminView.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
