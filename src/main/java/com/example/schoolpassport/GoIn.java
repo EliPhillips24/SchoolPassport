@@ -1,6 +1,9 @@
 package com.example.schoolpassport;
 
+import java.util.ArrayList;
+
 public class GoIn {
+    static ArrayList<GoIn> allGoIns;
     public String name;
     public String PerName;
     public int ID;
@@ -16,6 +19,10 @@ public class GoIn {
         this.grade = grade;
         Advisor = advisor;
         Pronouns = pronouns;
+        if (allGoIns == null) {
+            allGoIns = new ArrayList<GoIn>();
+        }
+        allGoIns.add(this);
     }
 
 
