@@ -13,9 +13,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,6 +29,14 @@ public class AdminView {
     public TableView AdminTable;
 
     public LocalDate localDate;
+    LocalDate currentDate = LocalDate.now();
+
+    String currentDateString = currentDate.toString();
+
+    String currentDateTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+
+
+
 
     public  String date;
 
@@ -97,6 +107,13 @@ public class AdminView {
         GradyearColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Integer>("iD"));
 
 
+        TableColumn TodaysDateColumn = new TableColumn<GoIn, Integer>("Date");
+        TodaysDateColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Integer>("date"));
+
+
+
+
+
 
         TableColumn AdvisorColumn = new TableColumn<GoIn, String>("Advisor");
         AdvisorColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("advisor"));
@@ -107,6 +124,7 @@ public class AdminView {
         AdminTable.getColumns().add(StuIDColumn);
         AdminTable.getColumns().add(GradyearColumn);
         AdminTable.getColumns().add(AdvisorColumn);
+        AdminTable.getColumns().add(TodaysDateColumn);
 
         this.scanner();
 
@@ -124,7 +142,7 @@ public class AdminView {
 
     public void scanner() throws Exception {
 
-        String fileName = "/Users/elip/IdeaProjects/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
+        String fileName = "/Users/TahseenAyesh/IdeaProjects/MyFirstTableView/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
 
         try {
             // Create a Scanner to read from the file
