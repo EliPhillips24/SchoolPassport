@@ -1,10 +1,6 @@
 package com.example.schoolpassport;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -18,6 +14,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 
 import com.github.sarxos.webcam.Webcam;
 import javafx.stage.Stage;
@@ -34,6 +33,7 @@ public class HelloController {
     public TextField AudioID;
     public ListView Chromebook;
     public Button Swap;
+    public ImageView studentFace;
     @FXML
 
     private Stage stage;
@@ -66,6 +66,14 @@ public class HelloController {
 
     public void onHelloButtonClick(ActionEvent actionEvent) {
 
+    }
+
+    public void uploadPicture(ActionEvent actionEvent) throws Exception {
+        FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        FileInputStream input = new FileInputStream(selectedFile);
+        Image image = new Image(input);
+        studentFace.setImage(image);
     }
 }
 
