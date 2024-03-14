@@ -1,12 +1,6 @@
 package com.example.schoolpassport;
 
 import java.io.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
-import javax.imageio.ImageIO;
-
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,6 +34,16 @@ public class HelloController {
     private Scene scene;
     private Parent root;
 
+    protected void initialize() throws Exception {
+        GoIn.scanner();
+        ChromeBook chromeBook1 = new ChromeBook(1, null,null);
+        ChromeBook chromeBook2 = new ChromeBook(1, null,null);
+        ChromeBook chromeBook3 = new ChromeBook(1, null,null);
+        ChromeBook chromeBook4 = new ChromeBook(1, null,null);
+        ChromeBook chromeBook5 = new ChromeBook(1, null,null);
+    }
+
+
     @FXML
     public void adminMode(ActionEvent event) throws Exception {
         System.out.println(Password.getText());
@@ -55,17 +59,12 @@ public class HelloController {
         }
     }
 
-    protected void addData() throws IOException {}
-    protected void ReadData() throws IOException {}
-    protected void Save() throws IOException {}
-    protected void Restore() throws IOException {}
-    protected void TakeFaceCameShot() throws IOException {}
-    protected void pullFromItem() throws IOException {}
-    protected void Initialize() throws IOException {}
+    public void checkInOutChromebook() {
+        // Tahseen will work here
+    }
 
-
-    public void onHelloButtonClick(ActionEvent actionEvent) {
-
+    public void login() {
+        // Rohan will work here
     }
 
     public void uploadPicture(ActionEvent actionEvent) throws Exception {
