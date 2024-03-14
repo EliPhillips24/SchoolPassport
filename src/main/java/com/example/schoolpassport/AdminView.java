@@ -126,7 +126,11 @@ public class AdminView {
         AdminTable.getColumns().add(AdvisorColumn);
         AdminTable.getColumns().add(TodaysDateColumn);
 
-        this.scanner();
+        GoIn.scanner();
+        for (GoIn eachOne : GoIn.allGoIns) {
+            AdminTable.getItems().add(eachOne);
+        }
+
 
     }
     public void normalMode(ActionEvent event) throws Exception {
@@ -139,48 +143,7 @@ public class AdminView {
         stage.show();
     }
 
-
-    public void scanner() throws Exception {
-
-        String fileName = "/Users/TahseenAyesh/IdeaProjects/MyFirstTableView/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
-
-        try {
-            // Create a Scanner to read from the file
-            Scanner scanner = new Scanner(new File(fileName));
-
-            // Loop through each line in the file
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-
-                // Split the line into individual components
-                String[] components = line.split("\t");
-
-                // Ensure the line has enough components to extract information
-                if (components.length >= 6) {
-                    String name = components[0];
-                    String PerName = components[1];
-                    String pronouns = components[2];
-                    int iD = Integer.parseInt(components[3]);
-                    int grade = Integer.parseInt(components[4]);
-
-                    String advisor = components[5];
-
-                    System.out.println(iD);
-                    GoIn newPerson = new GoIn(name,PerName,pronouns,iD,grade,advisor);
-                        AdminTable.getItems().add(newPerson);
-                    System.out.println("id");
-
-                } else {
-                    System.err.println("Invalid line format: " + line);
-                }
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.err.println("File not found: " + fileName);
-        }
-            }
-        }
+}
 
 
 
