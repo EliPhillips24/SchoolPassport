@@ -14,21 +14,21 @@ public class GoIn {
     public String Advisor;
 
     public String Pronouns;
+    public ChromeBook checkedOutChromeBook;
 
-    public GoIn(String name, String perName, String pronouns, int id, int grade, String advisor) {
+    public GoIn(String name, String perName, int ID, int grade, String advisor, String pronouns, ChromeBook checkedOutChromeBook) {
         this.name = name;
         PerName = perName;
-        this.ID = id;
+        this.ID = ID;
         this.grade = grade;
         Advisor = advisor;
         Pronouns = pronouns;
+        this.checkedOutChromeBook = checkedOutChromeBook;
         if (allGoIns == null) {
             allGoIns = new ArrayList<GoIn>();
         }
         allGoIns.add(this);
     }
-
-
 
     public String getName() {
         return name;
@@ -78,6 +78,26 @@ public class GoIn {
         Pronouns = pronouns;
     }
 
+    public static ArrayList<GoIn> getAllGoIns() {
+        return allGoIns;
+    }
+
+    public static void setAllGoIns(ArrayList<GoIn> allGoIns) {
+        GoIn.allGoIns = allGoIns;
+    }
+
+    public void setPronouns(String pronouns) {
+        Pronouns = pronouns;
+    }
+
+    public ChromeBook getCheckedOutChromeBook() {
+        return checkedOutChromeBook;
+    }
+
+    public void setCheckedOutChromeBook(ChromeBook checkedOutChromeBook) {
+        this.checkedOutChromeBook = checkedOutChromeBook;
+    }
+
     @Override
     public String toString() {
         return "GoIn{" +
@@ -116,7 +136,8 @@ public class GoIn {
                     String advisor = components[5];
 
                     System.out.println(iD);
-                    GoIn newPerson = new GoIn(name,PerName,pronouns,iD,grade,advisor);
+
+                    GoIn newPerson = new GoIn(name,PerName,iD,grade,advisor, pronouns, null);
                     System.out.println("id");
 
                 } else {

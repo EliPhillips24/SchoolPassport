@@ -34,6 +34,9 @@ public class HelloController {
     private Scene scene;
     private Parent root;
 
+    // state of the app
+    GoIn currentUser;
+
     protected void initialize() throws Exception {
         GoIn.scanner();
         ChromeBook chromeBook1 = new ChromeBook(1, null,null);
@@ -61,10 +64,17 @@ public class HelloController {
 
     public void checkInOutChromebook() {
         // Tahseen will work here
+        if (currentUser.getCheckedOutChromeBook() != null) {
+
+
+        }
     }
 
     public void login() {
         // Rohan will work here
+
+        currentUser = GoIn.allGoIns.get(0);
+        currentUser.setCheckedOutChromeBook(ChromeBook.allChromeBooks.get(0));
     }
 
     public void uploadPicture(ActionEvent actionEvent) throws Exception {
