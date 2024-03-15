@@ -64,9 +64,12 @@ public class HelloController {
 
     public void checkInOutChromebook() {
         // Tahseen will work here
-        if (currentUser.getCheckedOutChromeBook() != null) {
+        if (currentUser.getCheckedOutChromeBook() == null) {
+            // the user wants to check out a chromebook
 
+        } else {
 
+            // the user wants to check in a  chromebook
         }
     }
 
