@@ -1,5 +1,7 @@
 package com.example.schoolpassport;
 
+import javafx.scene.image.Image;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +16,7 @@ public class GoIn {
 
     public String Pronouns;
     public ChromeBook checkedOutChromeBook;
+    public Image face;
 
     public GoIn(String name, String perName, int ID, int grade, String advisor, String pronouns, ChromeBook checkedOutChromeBook) {
         this.name = name;
@@ -99,6 +102,14 @@ public class GoIn {
         this.checkedOutChromeBook = checkedOutChromeBook;
     }
 
+    public Image getFace() {
+        return face;
+    }
+
+    public void setFace(Image face) {
+        this.face = face;
+    }
+
     @Override
     public String toString() {
         return "GoIn{" +
@@ -152,7 +163,7 @@ public class GoIn {
     }
     static public void scanner() throws Exception {
 
-        String fileName = "/Users/elip/IdeaProjects/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
+        String fileName = "src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
 
         try {
             // Create a Scanner to read from the file

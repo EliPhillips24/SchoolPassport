@@ -17,16 +17,15 @@ import javafx.stage.Stage;
 
 public class HelloController {
     @FXML
-    public Label welcomeText;
-
-    public TextField StudentID;
-
     public PasswordField Password;
+    public TextField studentID;
+    public TextField studentName;
+
     public TextField Date;
     public TextField DateOfBirth;
-    public TextField AudioID;
-    public ListView Chromebook;
-    public Button Swap;
+    public TextField AutoID;
+    public ListView Chromebooks;
+    public Button CheckInOutButton;
     public ImageView studentFace;
     @FXML
 
@@ -40,10 +39,15 @@ public class HelloController {
     public void initialize() throws Exception {
         GoIn.scanner();
         ChromeBook chromeBook1 = new ChromeBook(1, null,null);
-        ChromeBook chromeBook2 = new ChromeBook(1, null,null);
-        ChromeBook chromeBook3 = new ChromeBook(1, null,null);
-        ChromeBook chromeBook4 = new ChromeBook(1, null,null);
-        ChromeBook chromeBook5 = new ChromeBook(1, null,null);
+        ChromeBook chromeBook2 = new ChromeBook(2, null,null);
+        ChromeBook chromeBook3 = new ChromeBook(3, null,null);
+        ChromeBook chromeBook4 = new ChromeBook(4, null,null);
+        ChromeBook chromeBook5 = new ChromeBook(5, null,null);
+        Chromebooks.getItems().add(chromeBook1);
+        Chromebooks.getItems().add(chromeBook2);
+        Chromebooks.getItems().add(chromeBook3);
+        Chromebooks.getItems().add(chromeBook4);
+        Chromebooks.getItems().add(chromeBook5);
     }
 
 
@@ -65,8 +69,13 @@ public class HelloController {
     public void checkInOutChromebook() {
         // Tahseen will work here
         if (currentUser.getCheckedOutChromeBook() == null) {
-            // the user wants to check out a chromebook
 
+            // the user wants to check out a chromebook
+            ChromeBook selectedChrombook = (ChromeBook)Chromebooks.getSelectionModel().getSelectedItem();
+            currentUser.setCheckedOutChromeBook(selectedChrombook);
+            selectedChrombook.setWhoCheckedOut(currentUser);
+            CheckInOutButton.setText("Check Back In");
+            Chromebooks.refresh();
         } else {
 
             // the user wants to check in a  chromebook
@@ -78,6 +87,26 @@ public class HelloController {
 
         currentUser = GoIn.allGoIns.get(0);
         currentUser.setCheckedOutChromeBook(ChromeBook.allChromeBooks.get(0));
+
+        int currentID = Integer.parseInt(AutoID.getText());
+
+        for ( GoIn eachGoin : GoIn.allGoIns) {
+            if (eachGoin.ID == currentID) {
+                currentUser = eachGoin;
+            }
+        }
+        studentName.setText(currentUser.getName());
+        studentID.setText(String.valueOf(currentUser.getID()));
+        Image currentUserImage = currentUser.getFace();
+        //if (currentUserImage != null) {
+            studentFace.setImage(currentUserImage);
+        //}
+
+        if (currentUser.checkedOutChromeBook != null) {
+            Chromebooks.getSelectionModel().select(currentUser.checkedOutChromeBook);
+        } else {
+            CheckInOutButton.setText("Check Out chromebook");
+        }
     }
 
     public void uploadPicture(ActionEvent actionEvent) throws Exception {
@@ -86,6 +115,7 @@ public class HelloController {
         FileInputStream input = new FileInputStream(selectedFile);
         Image image = new Image(input);
         studentFace.setImage(image);
+        currentUser.setFace(image);
     }
 }
 

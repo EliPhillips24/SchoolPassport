@@ -43,4 +43,15 @@ public class ChromeBook  {
     public void setWhoCheckedOut(GoIn whoCheckedOut) {
         this.whoCheckedOut = whoCheckedOut;
     }
+
+    public String toString() {
+        String name = "Chromebook #" + cbid;
+        String checkedOut = null;
+        if (whoCheckedOut != null) {
+            checkedOut = " by " + whoCheckedOut.name;
+            return  name + checkedOut;
+        }
+
+        return name;
+    }
 }

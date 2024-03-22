@@ -9,29 +9,28 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolpassport.HelloController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.schoolpassport.HelloController">
    <children>
-      <ImageView fx:id="studentFace" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="studentFace" fitHeight="205.0" fitWidth="216.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
          </image>
       </ImageView>
-      <TextField layoutX="321.0" layoutY="7.0" />
+      <TextField fx:id="studentID" editable="false" layoutX="321.0" layoutY="7.0" prefHeight="25.0" prefWidth="281.0" />
       <Text layoutX="239.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" wrappingWidth="61.3798828125" />
       <Text layoutX="242.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="61.3798828125" />
       <Text layoutX="239.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID:" wrappingWidth="61.3798828125" />
       <Text layoutX="242.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth:" wrappingWidth="82.3798828125" />
-      <Text layoutX="242.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Auto ID:" wrappingWidth="90.3798828125" />
-      <TextField layoutX="321.0" layoutY="68.0" />
-      <TextField fx:id="DateOfBirth" layoutX="321.0" layoutY="97.0" />
-      <TextField layoutX="321.0" layoutY="129.0" />
-      <Button layoutX="14.0" layoutY="176.0" mnemonicParsing="false" onAction="#uploadPicture" text="Upload Picture" />
-      <TextField layoutX="4.0" layoutY="228.0" onAction="#login" />
-      <Text layoutX="34.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go In With Auto ID" />
-      <Text layoutX="236.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chromebook:" wrappingWidth="90.3798828125" />
-      <Button layoutX="120.0" layoutY="174.0" mnemonicParsing="false" onAction="#checkInOutChromebook" prefHeight="26.0" prefWidth="101.0" text="Check Back In" />
+      <TextField fx:id="studentName" editable="false" layoutX="321.0" layoutY="68.0" prefHeight="25.0" prefWidth="281.0" />
+      <TextField fx:id="DateOfBirth" editable="false" layoutX="321.0" layoutY="97.0" prefHeight="25.0" prefWidth="281.0" />
+      <Button layoutX="13.0" layoutY="225.0" mnemonicParsing="false" onAction="#uploadPicture" text="Upload Picture" />
+      <TextField fx:id="AutoID" layoutX="14.0" layoutY="286.0" onAction="#login" />
+      <Text layoutX="13.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Go In With Auto ID" />
+      <Text layoutX="324.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chromebooks:" wrappingWidth="90.3798828125" />
+      <Button fx:id="CheckInOutButton" layoutX="424.0" layoutY="130.0" mnemonicParsing="false" onAction="#checkInOutChromebook" prefHeight="26.0" prefWidth="176.0" text="Check Out" />
       <Accordion disable="true" layoutX="332.0" layoutY="130.0" />
-      <ListView layoutX="325.0" layoutY="162.0" prefHeight="94.0" prefWidth="156.0" />
-      <TextField fx:id="Date" layoutX="321.0" layoutY="38.0" />
-      <PasswordField fx:id="Password" layoutX="170.0" layoutY="229.0" onAction="#adminMode" prefHeight="26.0" prefWidth="141.0" />
+      <ListView fx:id="Chromebooks" layoutX="324.0" layoutY="166.0" prefHeight="143.0" prefWidth="281.0" />
+      <TextField fx:id="Date" editable="false" layoutX="321.0" layoutY="38.0" prefHeight="25.0" prefWidth="281.0" />
+      <PasswordField fx:id="Password" layoutX="179.0" layoutY="285.0" onAction="#adminMode" prefHeight="26.0" prefWidth="134.0" />
+      <Text layoutX="178.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Login:" />
    </children>
 </Pane>
