@@ -12,8 +12,8 @@
       <Button layoutX="23.0" layoutY="334.0" mnemonicParsing="false" onAction="#normalMode" text="Return" />
       <Button layoutX="87.0" layoutY="334.0" mnemonicParsing="false" onAction="#adminData" text="Take Out Data" />
       <DatePicker fx:id="AdminDate" layoutX="476.0" layoutY="334.0" prefHeight="26.0" prefWidth="110.0" />
-      <Button layoutX="190.0" layoutY="335.0" mnemonicParsing="false" onAction="#Save" text="Save" />
-      <Button layoutX="236.0" layoutY="335.0" mnemonicParsing="false" onAction="#reload" text="Restore" />
+      <Button layoutX="190.0" layoutY="335.0" mnemonicParsing="false" text="Save" />
+      <Button layoutX="236.0" layoutY="335.0" mnemonicParsing="false" text="Restore" />
       <TextField layoutX="300.0" layoutY="335.0" promptText="GET THE ID SAMPLE IDEA" />
       <TextField fx:id="idTextField" layoutX="315.0" layoutY="2.0" />
    </children>

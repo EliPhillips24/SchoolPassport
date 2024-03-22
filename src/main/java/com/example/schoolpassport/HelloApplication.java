@@ -15,8 +15,6 @@ public class  HelloApplication extends Application {
 
     public void start(Stage stage) throws Exception {
         //boolean WhatSpell = false;
-
-
         FXMLLoader fxmlLoader;
 
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));

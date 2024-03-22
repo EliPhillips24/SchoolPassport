@@ -26,7 +26,7 @@ public class AdminView {
     private Scene scene;
     private Parent root;
     
-    public TableView AdminTable;
+    public  TableView AdminTable;
 
     public LocalDate localDate;
     LocalDate currentDate = LocalDate.now();
@@ -40,49 +40,6 @@ public class AdminView {
 
     public  String date;
 
-    public void Save() throws Exception {
-
-            FileOutputStream outputStream = new FileOutputStream("Save");
-            ObjectOutputStream objOutputStream = new ObjectOutputStream(outputStream);
-
-            ObservableList<GoIn> activities = AdminTable.getItems();
-
-            // Write the number of saved objects
-            objOutputStream.writeInt(activities.size());
-
-            // Write each Activity object
-            for (GoIn activity : activities) {
-                objOutputStream.writeObject(activity);
-            }
-
-            // Close the streams
-            objOutputStream.flush();
-            objOutputStream.close();
-            outputStream.close();
-        }
-    public void reload() throws Exception {
-
-        FileInputStream inputStream = new FileInputStream("Save");
-        ObjectInputStream objInputStream = new ObjectInputStream(inputStream);
-
-// Read the list size
-        int numOfSavedObjects = objInputStream.readInt();
-
-        List<GoIn> activities = new ArrayList<>();
-
-// Read each Activity object
-        for (int i = 0; i < numOfSavedObjects; i++) {
-            GoIn activity = (GoIn) objInputStream.readObject();
-            activities.add(activity);
-        }
-
-// Close the streams
-        objInputStream.close();
-        inputStream.close();
-
-// Add the loaded activities to the table
-        AdminTable.getItems().addAll(activities);
-    }
 
     protected void adminRemove() throws IOException {}
     public void adminData() throws Exception {
@@ -111,10 +68,6 @@ public class AdminView {
         TodaysDateColumn.setCellValueFactory(new PropertyValueFactory<GoIn, Integer>("date"));
 
 
-
-
-
-
         TableColumn AdvisorColumn = new TableColumn<GoIn, String>("Advisor");
         AdvisorColumn.setCellValueFactory(new PropertyValueFactory<GoIn, String>("advisor"));
 
@@ -126,7 +79,11 @@ public class AdminView {
         AdminTable.getColumns().add(AdvisorColumn);
         AdminTable.getColumns().add(TodaysDateColumn);
 
-        this.scanner();
+        for (GoIn eachGoIn : GoIn.allGoIns   ) {
+            AdminTable.getItems().add(eachGoIn);
+        }
+
+      //  GoIn.scanner();
 
     }
     public void normalMode(ActionEvent event) throws Exception {
@@ -142,7 +99,7 @@ public class AdminView {
 
     public void scanner() throws Exception {
 
-        String fileName = "/Users/TahseenAyesh/IdeaProjects/MyFirstTableView/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
+        String fileName = "/Users/elip/IdeaProjects/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
 
         try {
             // Create a Scanner to read from the file
@@ -166,7 +123,7 @@ public class AdminView {
                     String advisor = components[5];
 
                     System.out.println(iD);
-                    GoIn newPerson = new GoIn(name,PerName,pronouns,iD,grade,advisor);
+                    GoIn newPerson = new GoIn(name,PerName,grade,iD,pronouns,advisor,null);
                         AdminTable.getItems().add(newPerson);
                     System.out.println("id");
 

@@ -37,7 +37,7 @@ public class HelloController {
     // state of the app
     GoIn currentUser;
 
-    protected void initialize() throws Exception {
+    public void initialize() throws Exception {
         GoIn.scanner();
         ChromeBook chromeBook1 = new ChromeBook(1, null,null);
         ChromeBook chromeBook2 = new ChromeBook(1, null,null);

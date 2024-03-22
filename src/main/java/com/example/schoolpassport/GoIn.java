@@ -1,12 +1,11 @@
 package com.example.schoolpassport;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GoIn {
-    static public ArrayList<GoIn> allGoIns;
+     public static ArrayList<GoIn> allGoIns;
     public String name;
     public String PerName;
     public int ID;
@@ -29,6 +28,8 @@ public class GoIn {
         }
         allGoIns.add(this);
     }
+
+
 
     public String getName() {
         return name;
@@ -110,9 +111,48 @@ public class GoIn {
                 '}';
     }
 
+
+    public void Save() throws Exception {
+        FileOutputStream outputStream = new FileOutputStream("Save");
+        ObjectOutputStream objOutputStream = new ObjectOutputStream(outputStream);
+
+        // Write the number of saved objects
+        objOutputStream.writeInt(allGoIns.size());
+
+        // Write each Activity object
+        for (GoIn activity : allGoIns) {
+            objOutputStream.writeObject(activity);
+        }
+
+        // Close the streams
+        objOutputStream.flush();
+        objOutputStream.close();
+        outputStream.close();
+    }
+    public void reload() throws Exception {
+
+        FileInputStream inputStream = new FileInputStream("Save");
+        ObjectInputStream objInputStream = new ObjectInputStream(inputStream);
+
+// Read the list size
+        int numOfSavedObjects = objInputStream.readInt();
+
+        allGoIns = new ArrayList<>();
+
+// Read each Activity object
+        for (int i = 0; i < numOfSavedObjects; i++) {
+            GoIn activity = (GoIn) objInputStream.readObject();
+            allGoIns.add(activity);
+        }
+
+// Close the streams
+        objInputStream.close();
+        inputStream.close();
+
+    }
     static public void scanner() throws Exception {
 
-        String fileName = "/Users/TahseenAyesh/IdeaProjects/MyFirstTableView/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
+        String fileName = "/Users/elip/IdeaProjects/SchoolPassport/src/main/java/com/example/schoolpassport/SLA Roster - Students.tsv";
 
         try {
             // Create a Scanner to read from the file
